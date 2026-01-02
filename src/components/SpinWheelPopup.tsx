@@ -2,11 +2,10 @@ import { useState, useEffect } from 'react';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { X } from 'lucide-react';
 import SpinWheel from './SpinWheel';
-import EmailCaptureForm from './EmailCaptureForm';
 import PrizeReveal from './PrizeReveal';
-import { Prize, getPrizes, saveLead } from '@/lib/prizeStore';
+import { Prize, getPrizes } from '@/lib/prizeStore';
 
-type PopupState = 'email' | 'spin' | 'reveal';
+type PopupState = 'spin' | 'reveal';
 
 interface SpinWheelPopupProps {
   open: boolean;
@@ -14,40 +13,17 @@ interface SpinWheelPopupProps {
 }
 
 const SpinWheelPopup = ({ open, onOpenChange }: SpinWheelPopupProps) => {
-  const [state, setState] = useState<PopupState>('email');
+  const [state, setState] = useState<PopupState>('spin');
   const [prizes, setPrizes] = useState<Prize[]>([]);
   const [wonPrize, setWonPrize] = useState<Prize | null>(null);
-  const [userEmail, setUserEmail] = useState('');
-  const [userPhone, setUserPhone] = useState<string | undefined>();
   const [isSpinning, setIsSpinning] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setPrizes(getPrizes());
   }, [open]);
 
-  const handleEmailSubmit = (email: string, phone?: string) => {
-    setIsLoading(true);
-    setUserEmail(email);
-    setUserPhone(phone);
-    
-    // Simulate a brief loading state
-    setTimeout(() => {
-      setIsLoading(false);
-      setState('spin');
-    }, 500);
-  };
-
   const handleSpinEnd = (prize: Prize) => {
     setWonPrize(prize);
-    
-    // Save the lead
-    saveLead({
-      email: userEmail,
-      phone: userPhone,
-      prize: prize.label,
-      prizeCode: prize.code,
-    });
     
     setTimeout(() => {
       setState('reveal');
@@ -58,10 +34,8 @@ const SpinWheelPopup = ({ open, onOpenChange }: SpinWheelPopupProps) => {
     onOpenChange(false);
     // Reset state after close animation
     setTimeout(() => {
-      setState('email');
+      setState('spin');
       setWonPrize(null);
-      setUserEmail('');
-      setUserPhone(undefined);
       setIsSpinning(false);
     }, 300);
   };
@@ -81,10 +55,6 @@ const SpinWheelPopup = ({ open, onOpenChange }: SpinWheelPopupProps) => {
         </button>
 
         <div className="p-6">
-          {state === 'email' && (
-            <EmailCaptureForm onSubmit={handleEmailSubmit} isLoading={isLoading} />
-          )}
-
           {state === 'spin' && (
             <div className="text-center">
               <h2 className="text-2xl font-display text-foreground mb-2">
