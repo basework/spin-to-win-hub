@@ -51,7 +51,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>SpinWin - Spin. to Win Exclusive Prizes & Discounts!</title>
+        <title>SpinWin - Spin to Win Exclusive Prizes & Discounts!</title>
         <meta name="description" content="Spin the wheel for a chance to win exclusive discounts up to 50% off, free shipping, and more prizes! Join 10,000+ lucky winners today." />
         <meta name="keywords" content="spin to win, discount wheel, free prizes, exclusive offers, flash sale" />
         <link rel="canonical" href="https://spinwin.com" />
