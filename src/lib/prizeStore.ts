@@ -17,12 +17,14 @@ export interface Lead {
 }
 
 const DEFAULT_PRIZES: Prize[] = [
-  { id: '1', label: '50% OFF', code: 'MEGA50', probability: 5, color: 'hsl(38 100% 50%)' },
-  { id: '2', label: '20% OFF', code: 'SAVE20', probability: 15, color: 'hsl(280 80% 55%)' },
-  { id: '3', label: 'FREE SHIPPING', code: 'FREESHIP', probability: 20, color: 'hsl(145 70% 45%)' },
-  { id: '4', label: '10% OFF', code: 'DEAL10', probability: 25, color: 'hsl(0 85% 55%)' },
-  { id: '5', label: '$5 OFF', code: 'FIVE5', probability: 20, color: 'hsl(200 80% 50%)' },
-  { id: '6', label: 'TRY AGAIN', code: '', probability: 15, color: 'hsl(240 10% 30%)' },
+  { id: '1', label: 'iPhone 15 Pro', code: 'IPHONE15', probability: 2, color: 'hsl(38 100% 50%)' },
+  { id: '2', label: '$500 Cash', code: 'CASH500', probability: 5, color: 'hsl(145 70% 45%)' },
+  { id: '3', label: 'AirPods Pro', code: 'AIRPODS', probability: 8, color: 'hsl(280 80% 55%)' },
+  { id: '4', label: '$100 Gift Card', code: 'GIFT100', probability: 15, color: 'hsl(200 80% 50%)' },
+  { id: '5', label: 'Smart Watch', code: 'WATCH', probability: 10, color: 'hsl(320 70% 50%)' },
+  { id: '6', label: '$50 Cash', code: 'CASH50', probability: 20, color: 'hsl(0 85% 55%)' },
+  { id: '7', label: 'Bluetooth Speaker', code: 'SPEAKER', probability: 15, color: 'hsl(170 60% 45%)' },
+  { id: '8', label: 'Try Again', code: '', probability: 25, color: 'hsl(240 10% 30%)' },
 ];
 
 export const getPrizes = (): Prize[] => {
