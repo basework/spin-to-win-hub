@@ -17,12 +17,16 @@ export interface Lead {
 }
 
 const DEFAULT_PRIZES: Prize[] = [
-  { id: '1', label: '50% OFF', code: 'MEGA50', probability: 5, color: 'hsl(38 100% 50%)' },
-  { id: '2', label: '20% OFF', code: 'SAVE20', probability: 15, color: 'hsl(280 80% 55%)' },
-  { id: '3', label: 'FREE SHIPPING', code: 'FREESHIP', probability: 20, color: 'hsl(145 70% 45%)' },
-  { id: '4', label: '10% OFF', code: 'DEAL10', probability: 25, color: 'hsl(0 85% 55%)' },
-  { id: '5', label: '$5 OFF', code: 'FIVE5', probability: 20, color: 'hsl(200 80% 50%)' },
-  { id: '6', label: 'TRY AGAIN', code: '', probability: 15, color: 'hsl(240 10% 30%)' },
+  { id: '1', label: 'iPhone 15 Pro', code: 'iPhone 15 Pro', probability: 5, color: 'hsl(38 100% 50%)' },
+  { id: '2', label: 'Samsung Galaxy S24', code: 'Samsung Galaxy S24', probability: 8, color: 'hsl(280 80% 55%)' },
+  { id: '3', label: 'MacBook Air M3', code: 'MacBook Air M3', probability: 5, color: 'hsl(145 70% 45%)' },
+  { id: '4', label: 'Sony WH-1000XM5 Headphones', code: 'Sony WH-1000XM5 Headphones', probability: 12, color: 'hsl(0 85% 55%)' },
+  { id: '5', label: 'Apple Watch Series 9', code: 'Apple Watch Series 9', probability: 10, color: 'hsl(200 80% 50%)' },
+  { id: '6', label: 'iPad Pro 12.9"', code: 'iPad Pro 12.9"', probability: 8, color: 'hsl(120 75% 45%)' },
+  { id: '7', label: 'Google Pixel 8 Pro', code: 'Google Pixel 8 Pro', probability: 12, color: 'hsl(280 60% 50%)' },
+  { id: '8', label: 'Nintendo Switch OLED', code: 'Nintendo Switch OLED', probability: 15, color: 'hsl(350 85% 55%)' },
+  { id: '9', label: 'Samsung 4K Smart TV 55"', code: 'Samsung 4K Smart TV 55"', probability: 5, color: 'hsl(200 70% 45%)' },
+  { id: '10', label: 'Try Again', code: '', probability: 20, color: 'hsl(240 10% 30%)' },
 ];
 
 export const getPrizes = (): Prize[] => {
