@@ -4,29 +4,70 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import { useEffect } from "react";
 import Index from "./pages/Index";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/admin" element={<Admin />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
-  </HelmetProvider>
-);
+const App = () => {
+  useEffect(() => {
+    // Load ad scripts
+    const scripts = [
+      {
+        src: "https://pl28218006.effectivegatecpm.com/e9/5d/9f/e95d9f79fe872eba5d870aca023aa8b3.js",
+        async: true
+      },
+      {
+        src: "https://pl28389000.effectivegatecpm.com/f1/4f/74/f14f74330d0fdd4562e69cc344e34278.js",
+        async: true
+      },
+      {
+        src: "https://pl28389029.effectivegatecpm.com/5a/9e/a6/5a9ea6e15b33da2763113e5a0e63b162.js",
+        async: true
+      },
+      {
+        src: "https://3nbf4.com/act/files/tag.min.js?z=10297783",
+        async: true,
+        "data-cfasync": "false"
+      }
+    ];
+
+    scripts.forEach(scriptConfig => {
+      const script = document.createElement("script");
+      script.src = scriptConfig.src;
+      script.async = scriptConfig.async;
+      if (scriptConfig["data-cfasync"]) {
+        script.setAttribute("data-cfasync", scriptConfig["data-cfasync"]);
+      }
+      document.head.appendChild(script);
+    });
+
+    // Inline script for al5sm
+    const inlineScript = document.createElement("script");
+    inlineScript.innerHTML = "(function(s){s.dataset.zone='10297781',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))";
+    document.head.appendChild(inlineScript);
+  }, []);
+
+  return (
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/admin" element={<Admin />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </HelmetProvider>
+  );
+};
 
 export default App;
