@@ -15,10 +15,8 @@ const App = () => {
   useEffect(() => {
     // Load ad scripts
     const scripts = [
-      {
-        src: "https://pl28218006.effectivegatecpm.com/e9/5d/9f/e95d9f79fe872eba5d870aca023aa8b3.js",
-        async: true
-      },
+      
+
       {
         src: "https://pl28389000.effectivegatecpm.com/f1/4f/74/f14f74330d0fdd4562e69cc344e34278.js",
         async: true
