@@ -29,6 +29,12 @@ const App = () => {
         src: "https://3nbf4.com/act/files/tag.min.js?z=10297783",
         async: true,
         "data-cfasync": "false"
+      },
+      {
+        src: "https://quge5.com/88/tag.min.js",
+        async: true,
+        "data-zone": "198680",
+        "data-cfasync": "false"
       }
     ];
 
@@ -36,9 +42,11 @@ const App = () => {
       const script = document.createElement("script");
       script.src = scriptConfig.src;
       script.async = scriptConfig.async;
-      if (scriptConfig["data-cfasync"]) {
-        script.setAttribute("data-cfasync", scriptConfig["data-cfasync"]);
-      }
+      Object.keys(scriptConfig).forEach(key => {
+        if (key !== 'src' && key !== 'async') {
+          script.setAttribute(key, scriptConfig[key]);
+        }
+      });
       document.head.appendChild(script);
     });
 
