@@ -26,8 +26,9 @@ const App = () => {
         async: true
       },
       {
-        src: "https://3nbf4.com/act/files/tag.min.js?z=10297783",
+        src: "https://quge5.com/88/tag.min.js",
         async: true,
+        "data-zone": "204860",
         "data-cfasync": "false"
       },
       {
